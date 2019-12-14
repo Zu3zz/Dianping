@@ -17,17 +17,16 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public CommonRes doError(HttpServletRequest servletRequest, HttpServletResponse httpServletResponse, Exception ex){
-        if(ex instanceof BusinessException){
-            return CommonRes.create(((BusinessException)ex).getCommonError(), "fail");
-        }else if (ex instanceof NoHandlerFoundException){
+    public CommonRes doError(HttpServletRequest servletRequest, HttpServletResponse httpServletResponse, Exception ex) {
+        if (ex instanceof BusinessException) {
+            return CommonRes.create(((BusinessException) ex).getCommonError(), "fail");
+        } else if (ex instanceof NoHandlerFoundException) {
             CommonError commonError = new CommonError(EmBusinessError.NO_HANDLER_FOUND);
             return CommonRes.create(commonError, "fail");
-        }else if(ex instanceof ServletRequestBindingException){
+        } else if (ex instanceof ServletRequestBindingException) {
             CommonError commonError = new CommonError(EmBusinessError.BIND_EXCEPTION_ERROR);
             return CommonRes.create(commonError, "fail");
-        }
-        else{
+        } else {
             CommonError commonError = new CommonError(EmBusinessError.UNKNOWN_ERROR);
             return CommonRes.create(commonError, "fail");
         }
