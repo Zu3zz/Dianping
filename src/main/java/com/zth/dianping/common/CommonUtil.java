@@ -12,10 +12,10 @@ public class CommonUtil {
         if(!bindingResult.hasErrors()){
             return "";
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (FieldError fieldError:bindingResult.getFieldErrors()){
-            sb.append(fieldError.getDefaultMessage()+", ");
+            stringBuilder.append(fieldError.getDefaultMessage()+", ");
         }
-        return sb.substring(0,sb.length()-1);
+        return stringBuilder.substring(0,stringBuilder.length()-1);
     }
 }
