@@ -1,8 +1,8 @@
 package com.zth.dianping.common;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/14 1:27 上午
+ * @author 3zz
  */
 public enum EmBusinessError {
     // 通用的错误类型10000开头

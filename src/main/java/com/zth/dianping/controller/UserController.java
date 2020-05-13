@@ -22,8 +22,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/11 1:20 下午
+ * @author 3zz
  */
 @Controller("/user")
 @RequestMapping("/user")
@@ -54,7 +54,6 @@ public class UserController {
     public CommonRes getUser(@RequestParam(name = "id")Integer id) throws BusinessException {
         UserModel userModel = userService.getUser(id);
         if(userModel == null){
-            // return CommonRes.create(new CommonError(EmBusinessError.NO_OBJECT_FOUND),"fail");
             throw new BusinessException(EmBusinessError.NO_OBJECT_FOUND);
         }
         return CommonRes.create(userModel);
@@ -95,7 +94,10 @@ public class UserController {
         return CommonRes.create(null);
     }
 
-    // 获取当前用户信息
+    /**
+     * 获取当前用户信息
+     * @return 通用返回结果
+     */
     @RequestMapping("/getcurrentuser")
     @ResponseBody
     public CommonRes getCurrentUser(){

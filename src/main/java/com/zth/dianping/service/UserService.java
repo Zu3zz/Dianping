@@ -7,8 +7,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/11 1:20 下午
+ * @author 3zz
  */
 public interface UserService {
     UserModel getUser(Integer id);

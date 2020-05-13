@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/14 1:35 上午
+ * @author 3zz
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {

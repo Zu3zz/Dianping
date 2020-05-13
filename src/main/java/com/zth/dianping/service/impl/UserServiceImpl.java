@@ -17,8 +17,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/11 1:38 下午
+ * @author 3zz
  */
 @Service
 public class UserServiceImpl implements UserService {

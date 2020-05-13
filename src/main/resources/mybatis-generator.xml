@@ -41,6 +41,5 @@
                enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
-
     </context>
 </generatorConfiguration>
