@@ -1,8 +1,8 @@
 package com.zth.dianping.request;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/16 8:11 下午
+ * @author 3zz
  */
 public class PageQuery {
     private Integer page = 1;

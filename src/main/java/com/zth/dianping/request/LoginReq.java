@@ -3,8 +3,8 @@ package com.zth.dianping.request;
 import javax.validation.constraints.NotBlank;
 
 /**
- * Author: 3zZ.
  * Date: 2019/12/16 8:06 下午
+ * @author 3zz
  */
 public class LoginReq {
     @NotBlank(message = "手机号不能为空")
