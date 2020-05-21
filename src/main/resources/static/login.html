@@ -161,8 +161,8 @@
         });
 
         $("#loginBtn").on("click",function(){
-            var telphone=$("#telphone").val();
-            var password=$("#password").val();
+            const telphone = $("#telphone").val();
+            const password = $("#password").val();
 
             $.ajax({
                 type:"POST",
@@ -173,7 +173,7 @@
                     "password":password
                 }),
                 success:function(data){
-                    if(data.status == "success"){
+                    if(data.status === "success"){
                         window.location.href="/static/index.html";
                     }else{
                         alert("请求失败,原因为"+data.data.errMsg);

@@ -6,6 +6,7 @@ import com.zth.dianping.dal.SellerModelMapper;
 import com.zth.dianping.model.SellerModel;
 import com.zth.dianping.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -17,6 +18,7 @@ import java.util.List;
  *
  * @author 3zZ.
  */
+@Service
 public class SellerServiceImpl implements SellerService {
 
     @Autowired

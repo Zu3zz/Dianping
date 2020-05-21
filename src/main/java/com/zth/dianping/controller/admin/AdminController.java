@@ -1,5 +1,6 @@
 package com.zth.dianping.controller.admin;
 
+import com.github.pagehelper.util.StringUtil;
 import com.zth.dianping.common.AdminPermission;
 import com.zth.dianping.common.BusinessException;
 import com.zth.dianping.common.CommonUtil;
@@ -48,14 +49,16 @@ public class AdminController {
         modelAndView.addObject("ACTION_NAME","index");
         return modelAndView;
     }
+
     @RequestMapping("/loginpage")
     public ModelAndView loginpage(){
         return new ModelAndView("/admin/admin/login");
     }
+
     @PostMapping(value = "/login")
     public String login(@RequestParam(name = "email")String email,
                         @RequestParam(name = "password")String password) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException {
-        if(StringUtils.isEmpty(email) || CommonUtil.encodeByMd5(password).equals(this.encrptyPassord)){
+        if(StringUtils.isEmpty(email) || StringUtils.isEmpty(password)){
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "用户名密码不能为空");
         }
         if(email.equals(this.email) && CommonUtil.encodeByMd5(password).equals(this.encrptyPassord)){
@@ -65,6 +68,5 @@ public class AdminController {
         } else {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "用户名密码错误");
         }
-
     }
 }

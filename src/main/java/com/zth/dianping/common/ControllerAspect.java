@@ -3,8 +3,10 @@ package com.zth.dianping.common;
 import com.zth.dianping.controller.admin.AdminController;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,8 @@ import java.lang.reflect.Method;
  *
  * @author 3zZ.
  */
+@Aspect
+@Configuration
 public class ControllerAspect {
     @Autowired
     private HttpServletRequest request;

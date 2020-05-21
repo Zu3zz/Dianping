@@ -1,6 +1,7 @@
 package com.zth.dianping.request;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * Date: 2019/12/16 7:35 下午
@@ -16,7 +17,7 @@ public class RegisterReq {
     @NotBlank(message = "昵称不能为空")
     private String nickName;
 
-    @NotBlank(message = "性别不能为空")
+    @NotNull(message = "性别不能为空")
     private Integer gender;
 
     public String getTelphone() {

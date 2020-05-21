@@ -8,10 +8,7 @@ import com.zth.dianping.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import sun.awt.EmbeddedFrame;
 
@@ -59,19 +56,17 @@ public class UserController {
         return CommonRes.create(userModel);
     }
 
-    @RequestMapping("/register")
+    @PostMapping("/register")
     @ResponseBody
     public CommonRes register(@Valid @RequestBody RegisterReq registerReq, BindingResult bindingResult) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException {
         if(bindingResult.hasErrors()){
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, CommonUtil.processErrorString(bindingResult));
         }
-
         UserModel registerUser = new UserModel();
         registerUser.setTelphone(registerReq.getTelphone());
         registerUser.setPassword(registerReq.getPassword());
         registerUser.setNickName(registerReq.getNickName());
         registerUser.setGender(registerReq.getGender());
-
         UserModel resUserModel = userService.register(registerUser);
 
         return CommonRes.create(resUserModel);
@@ -89,14 +84,14 @@ public class UserController {
     }
     @RequestMapping("/logout")
     @ResponseBody
-    public CommonRes logout(@RequestBody @Valid LoginReq loginReq, BindingResult bindingResult) throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException{
+    public CommonRes logout() throws BusinessException, UnsupportedEncodingException, NoSuchAlgorithmException{
         httpServletRequest.getSession().invalidate();
         return CommonRes.create(null);
     }
 
     /**
      * 获取当前用户信息
-     * @return 通用返回结果
+     * @return 通用 返回结果
      */
     @RequestMapping("/getcurrentuser")
     @ResponseBody
