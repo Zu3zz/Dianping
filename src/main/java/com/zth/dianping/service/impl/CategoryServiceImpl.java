@@ -7,6 +7,7 @@ import com.zth.dianping.model.CategoryModel;
 import com.zth.dianping.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -17,6 +18,7 @@ import java.util.List;
  *
  * @author 3zZ.
  */
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
