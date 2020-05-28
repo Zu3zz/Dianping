@@ -24,7 +24,6 @@ public class SellerServiceImpl implements SellerService {
     @Autowired
     private SellerModelMapper sellerModelMapper;
 
-
     /**
      * 创建卖家
      *

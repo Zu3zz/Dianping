@@ -1,6 +1,5 @@
 package com.zth.dianping.controller.admin;
 
-import com.github.pagehelper.util.StringUtil;
 import com.zth.dianping.common.AdminPermission;
 import com.zth.dianping.common.BusinessException;
 import com.zth.dianping.common.CommonUtil;

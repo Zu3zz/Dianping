@@ -57,7 +57,8 @@ public class SellerController {
         modelAndView.addObject("ACTION_NAME", "create");
         return modelAndView;
     }
-
+    @PostMapping(value = "/create")
+    @AdminPermission
     public String create(@Valid SellerCreateReq sellerCreateReq, BindingResult bindingResult) throws BusinessException {
         if (bindingResult.hasErrors()) {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, CommonUtil.processErrorString(bindingResult));
