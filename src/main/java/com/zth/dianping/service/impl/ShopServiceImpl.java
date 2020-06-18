@@ -10,6 +10,7 @@ import com.zth.dianping.service.CategoryService;
 import com.zth.dianping.service.SellerService;
 import com.zth.dianping.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -22,6 +23,7 @@ import java.util.Map;
  *
  * @author 3zZ.
  */
+@Service
 public class ShopServiceImpl implements ShopService {
 
     @Autowired
@@ -87,6 +89,23 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public List<ShopModel> selectAll() {
         List<ShopModel> shopModelList = shopModelMapper.selectAll();
+        shopModelList.forEach(shopModel -> {
+            shopModel.setSellerModel(sellerService.get(shopModel.getSellerId()));
+            shopModel.setCategoryModel(categoryService.get(shopModel.getCategoryId()));
+        });
+        return shopModelList;
+    }
+
+    /**
+     * 根据经纬度做数据库中的简单推荐
+     *
+     * @param longitude 经度
+     * @param latitude  纬度
+     * @return 返回满足条件的数据库店铺集合
+     */
+    @Override
+    public List<ShopModel> recommend(BigDecimal longitude, BigDecimal latitude) {
+        List<ShopModel> shopModelList = shopModelMapper.recommend(longitude, latitude);
         shopModelList.forEach(shopModel -> {
             shopModel.setSellerModel(sellerService.get(shopModel.getSellerId()));
             shopModel.setCategoryModel(categoryService.get(shopModel.getCategoryId()));

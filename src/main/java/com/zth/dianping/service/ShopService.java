@@ -38,6 +38,14 @@ public interface ShopService {
     List<ShopModel> selectAll();
 
     /**
+     * 根据经纬度做数据库中的简单推荐
+     * @param longitude 经度
+     * @param latitude 纬度
+     * @return 返回满足条件的数据库店铺集合
+     */
+    List<ShopModel> recommend(BigDecimal longitude, BigDecimal latitude);
+
+    /**
      * 通过标签选择分组
      * @param keyword 关键字
      * @param categoryId 分组id

@@ -80,4 +80,14 @@ public class SellerServiceImpl implements SellerService {
         sellerModelMapper.updateByPrimaryKeySelective(sellerModel);
         return sellerModel;
     }
+
+    /**
+     * 统计所有商家
+     *
+     * @return 返回商家个数
+     */
+    @Override
+    public Integer countAllSeller() {
+        return sellerModelMapper.countAllSeller();
+    }
 }

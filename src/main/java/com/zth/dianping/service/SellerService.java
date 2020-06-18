@@ -43,4 +43,10 @@ public interface SellerService {
      * @throws BusinessException 改变失败抛出异常
      */
     SellerModel changeStatus(Integer id, Integer disabledFlag) throws BusinessException;
+
+    /**
+     * 统计所有商家
+     * @return 返回商家个数
+     */
+    Integer countAllSeller();
 }

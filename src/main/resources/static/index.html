@@ -762,9 +762,7 @@
 <script type="text/javascript" src="/static/script/swipe.js"></script>
 <script type="text/javascript" src="/static/script/jquery.min.js"></script>
 <script type="text/javascript" src="/static/script/bootstrap.js"></script>
-
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FqB15cbgf1pzWzum5ajGpTrcfr7b3b90"></script>
-
 <script type="text/javascript">
 
     var g_orderby = null;
@@ -890,7 +888,6 @@
             }
         });
 
-
         $("#rightTitle").on("click", function () {
             if (g_currentUser == null) {
                 window.location.href = "/static/login.html";
@@ -913,8 +910,6 @@
             }
             return false;
         });
-
-
         function searchMethod() {
 
             var orderby = "";
@@ -1041,17 +1036,14 @@
                 }
             });
         }
-
         $('#keyword').on('keypress', function (event) {
             if (event.keyCode == 13) {
                 searchMethod();
             }
         });
-
         $("#resTitle").on("click", function () {
             $("#extraPadding").toggle(500);
         });
-
     });
 </script>
 </html>

@@ -72,6 +72,6 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public Integer countAllCategory() {
-        return null;
+        return categoryModelMapper.countAllCategory();
     }
 }
